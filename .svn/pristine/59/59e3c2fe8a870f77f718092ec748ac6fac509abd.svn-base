@@ -1,0 +1,137 @@
+[
+    { 
+        "entity": {
+            "id": 1,
+            "name": "systemManage",
+            "icon": "el-icon-document",
+            "alias": "首页",
+            "value": "/back/homepage"
+        }
+    },
+    {
+        "entity": {
+            "id": 2,
+            "name": "userManage",
+            "icon": "el-icon-document",
+            "alias": "警戒区布控"
+        },
+        "childs": [        
+            {
+                "entity": {
+                    "id": 21,
+                    "name": "accountManage",
+                    "icon": "el-icon-document",
+                    "alias": "警戒区管理",
+                    "value": "/back/districtAdd"
+                }          
+            },{
+                "entity": {
+                    "id": 22,
+                    "name": "passManage",
+                    "icon": "el-icon-document",
+                    "alias": "警戒区类型管理",
+                    "value": "/content/pass"
+                }
+            }]
+    },
+    {
+        "entity": {
+            "id": 3,
+            "name": "userManage",
+            "icon": "el-icon-document",
+            "alias": "设备布控"
+        },
+        "childs": [        
+            {
+                "entity": {
+                    "id": 301,
+                    "name": "accountManage",
+                    "icon": "el-icon-document",
+                    "alias": "摄像头管理",
+                    "value": "/back/camera-manager"
+                }          
+            },{
+                "entity": {
+                    "id": 302,
+                    "name": "accountManage",
+                    "icon": "el-icon-document",
+                    "alias": "摄像头种类管理",
+                    "value": "/back/camera-type-manager"
+                }
+            }, {
+                "entity": {
+                    "id": 303,
+                    "name": "accountManage",
+                    "icon": "el-icon-document",
+                    "alias": "设备管理",
+                    "value": ""
+                }          
+            },{
+                "entity": {
+                    "id": 304,
+                    "name": "accountManage",
+                    "icon": "el-icon-document",
+                    "alias": "设备种类管理",
+                    "value": "/back/equip-type-manager"
+                }
+            }]
+    },
+    {
+        "entity": {
+            "id": 4,
+            "name": "userManage",
+            "icon": "el-icon-document",
+            "alias": "综合信息管理"
+        },
+        "childs": [        
+            {
+                "entity": {
+                    "id": 401,
+                    "name": "accountManage",
+                    "icon": "el-icon-document",
+                    "alias": "基础车辆信息管理",
+                    "value": "/back/vehicleInfo"
+                }          
+            },{
+                "entity": {
+                    "id": 402,
+                    "name": "passManage",
+                    "icon": "el-icon-document",
+                    "alias": "基础人员信息管理",
+                    "value": "/back/peopleInfo"
+                }
+            }, {
+                "entity": {
+                    "id": 403,
+                    "name": "accountManage",
+                    "icon": "el-icon-document",
+                    "alias": "报警规则管理",
+                    "value": ""
+                }          
+            },{
+                "entity": {
+                    "id": 404,
+                    "name": "passManage",
+                    "icon": "el-icon-document",
+                    "alias": "时间同步管理",
+                    "value": "/content/pass"
+                }
+            },{
+                "entity": {
+                    "id": 405,
+                    "name": "accountManage",
+                    "icon": "el-icon-document",
+                    "alias": "系统用户管理",
+                    "value": ""
+                }          
+            },{
+                "entity": {
+                    "id": 406,
+                    "name": "passManage",
+                    "icon": "el-icon-document",
+                    "alias": "日志管理",
+                    "value": "/content/pass"
+                }
+            }]
+    }
+]

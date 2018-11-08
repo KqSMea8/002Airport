@@ -1,0 +1,49 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\bimenv\\node-v6.11.4-win-x64\\node.exe',
+1 verbose cli   'C:\\bimenv\\node-v6.11.4-win-x64\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'run',
+1 verbose cli   'dev' ]
+2 info using npm@3.10.10
+3 info using node@v6.11.4
+4 verbose run-script [ 'predev', 'dev', 'postdev' ]
+5 info lifecycle airport@1.0.0~predev: airport@1.0.0
+6 silly lifecycle airport@1.0.0~predev: no script for predev, continuing
+7 info lifecycle airport@1.0.0~dev: airport@1.0.0
+8 verbose lifecycle airport@1.0.0~dev: unsafe-perm in lifecycle true
+9 verbose lifecycle airport@1.0.0~dev: PATH: C:\bimenv\node-v6.11.4-win-x64\node_modules\npm\bin\node-gyp-bin;G:\project\002Airport\node_modules\.bin;C:\Program Files\Docker\Docker\Resources\bin;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Users\admin\.dnx\bin;C:\Program Files\Microsoft DNX\Dnvm\;C:\Program Files\Microsoft SQL Server\120\Tools\Binn\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\TortoiseSVN\bin;D:\Program Files\VisualSVN Server\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\GtkSharp\2.12\bin;C:\Program Files\;C:\bimenv\7-Zip;C:\bimenv\Blender;C:\bimenv\node-v6.11.4-win-x64;C:\bimenv\python-3.6.3-embed-amd64;C:\Program Files\FME\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Users\admin\AppData\Local\Microsoft\WindowsApps;;D:\Program Files\Microsoft VS Code\bin;C:\Users\admin\AppData\Roaming\npm
+10 verbose lifecycle airport@1.0.0~dev: CWD: G:\project\002Airport
+11 silly lifecycle airport@1.0.0~dev: Args: [ '/d /s /c',
+11 silly lifecycle   'webpack-dev-server --inline --progress --config build/webpack.dev.conf.js' ]
+12 silly lifecycle airport@1.0.0~dev: Returned: code: 3221225786  signal: null
+13 info lifecycle airport@1.0.0~dev: Failed to exec dev script
+14 verbose stack Error: airport@1.0.0 dev: `webpack-dev-server --inline --progress --config build/webpack.dev.conf.js`
+14 verbose stack Exit status 3221225786
+14 verbose stack     at EventEmitter.<anonymous> (C:\bimenv\node-v6.11.4-win-x64\node_modules\npm\lib\utils\lifecycle.js:255:16)
+14 verbose stack     at emitTwo (events.js:106:13)
+14 verbose stack     at EventEmitter.emit (events.js:191:7)
+14 verbose stack     at ChildProcess.<anonymous> (C:\bimenv\node-v6.11.4-win-x64\node_modules\npm\lib\utils\spawn.js:40:14)
+14 verbose stack     at emitTwo (events.js:106:13)
+14 verbose stack     at ChildProcess.emit (events.js:191:7)
+14 verbose stack     at maybeClose (internal/child_process.js:920:16)
+14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:230:5)
+15 verbose pkgid airport@1.0.0
+16 verbose cwd G:\project\002Airport
+17 error Windows_NT 10.0.17134
+18 error argv "C:\\bimenv\\node-v6.11.4-win-x64\\node.exe" "C:\\bimenv\\node-v6.11.4-win-x64\\node_modules\\npm\\bin\\npm-cli.js" "run" "dev"
+19 error node v6.11.4
+20 error npm  v3.10.10
+21 error code ELIFECYCLE
+22 error airport@1.0.0 dev: `webpack-dev-server --inline --progress --config build/webpack.dev.conf.js`
+22 error Exit status 3221225786
+23 error Failed at the airport@1.0.0 dev script 'webpack-dev-server --inline --progress --config build/webpack.dev.conf.js'.
+23 error Make sure you have the latest version of node.js and npm installed.
+23 error If you do, this is most likely a problem with the airport package,
+23 error not with npm itself.
+23 error Tell the author that this fails on your system:
+23 error     webpack-dev-server --inline --progress --config build/webpack.dev.conf.js
+23 error You can get information on how to open an issue for this project with:
+23 error     npm bugs airport
+23 error Or if that isn't available, you can get their info via:
+23 error     npm owner ls airport
+23 error There is likely additional logging output above.
+24 verbose exit [ 1, true ]

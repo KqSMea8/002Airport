@@ -1,0 +1,100 @@
+[
+   
+    {
+        "entity": {
+            "id": 1,
+            "name": "userManage",
+            "icon": "el-icon-document",
+            "alias": "商业数据经营总览"
+        },
+        "childs": [        
+            {
+                "entity": {
+                    "id": 11,
+                    "name": "accountManage",
+                    "icon": "el-icon-document",
+                    "alias": "经营报告-日",
+                    "value": "/viewbyday"
+                }          
+            },{
+                "entity": {
+                    "id": 12,
+                    "name": "passManage",
+                    "icon": "el-icon-document",
+                    "alias": "经营报告-周",
+                    "value": "/viewbyweek"
+                }
+            },{
+                "entity": {
+                    "id": 12,
+                    "name": "passManage",
+                    "icon": "el-icon-document",
+                    "alias": "经营报告-月",
+                    "value": "/viewbymonth"
+                }
+            },{
+                "entity": {
+                    "id": 12,
+                    "name": "passManage",
+                    "icon": "el-icon-document",
+                    "alias": "经营报告-年",
+                    "value": "/viewbyyear"
+                }
+            }]
+    },
+    { 
+        "entity": {
+            "id": 2,
+            "name": "systemManage",
+            "icon": "el-icon-document",
+            "alias": "商业地图可视化",
+            "value": "/mapview"
+        }
+    },
+    { 
+        "entity": {
+            "id": 2,
+            "name": "systemManage",
+            "icon": "el-icon-document",
+            "alias": "合约概览",
+            "value": "/contract"
+        }
+    },
+    { 
+        "entity": {
+            "id": 2,
+            "name": "systemManage",
+            "icon": "el-icon-document",
+            "alias": "营业概览",
+            "value": "/business"
+        }
+    },
+    { 
+        "entity": {
+            "id": 2,
+            "name": "systemManage",
+            "icon": "el-icon-document",
+            "alias": "精准营销准备",
+            "value": "/marketing"
+        }
+    },
+    { 
+        "entity": {
+            "id": 2,
+            "name": "systemManage",
+            "icon": "el-icon-document",
+            "alias": "客流情况",
+            "value": "/flow"
+        }
+    },
+    { 
+        "entity": {
+            "id": 2,
+            "name": "systemManage",
+            "icon": "el-icon-document",
+            "alias": "驾驶舱",
+            "value": "/cockpit"
+        }
+    }
+    
+]

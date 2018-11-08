@@ -1,0 +1,99 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "caniuse-db@^1.0.30000634",
+        "scope": null,
+        "escapedName": "caniuse-db",
+        "name": "caniuse-db",
+        "rawSpec": "^1.0.30000634",
+        "spec": ">=1.0.30000634 <2.0.0",
+        "type": "range"
+      },
+      "G:\\project\\004Airport\\node_modules\\cssnano\\node_modules\\autoprefixer"
+    ]
+  ],
+  "_from": "caniuse-db@>=1.0.30000634 <2.0.0",
+  "_hasShrinkwrap": false,
+  "_id": "caniuse-db@1.0.30000905",
+  "_inCache": true,
+  "_location": "/caniuse-db",
+  "_nodeVersion": "6.10.3",
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/caniuse-db_1.0.30000905_1541393223311_0.23226673306802192"
+  },
+  "_npmUser": {
+    "name": "fyrd",
+    "email": "adeveria@gmail.com"
+  },
+  "_npmVersion": "3.10.10",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "caniuse-db@^1.0.30000634",
+    "scope": null,
+    "escapedName": "caniuse-db",
+    "name": "caniuse-db",
+    "rawSpec": "^1.0.30000634",
+    "spec": ">=1.0.30000634 <2.0.0",
+    "type": "range"
+  },
+  "_requiredBy": [
+    "/caniuse-api",
+    "/caniuse-api/browserslist",
+    "/cssnano/autoprefixer",
+    "/cssnano/browserslist",
+    "/postcss-merge-rules/browserslist"
+  ],
+  "_resolved": "https://registry.npmjs.org/caniuse-db/-/caniuse-db-1.0.30000905.tgz",
+  "_shasum": "dd762db91d20d53a2e6bf227596d162b91782e73",
+  "_shrinkwrap": null,
+  "_spec": "caniuse-db@^1.0.30000634",
+  "_where": "G:\\project\\004Airport\\node_modules\\cssnano\\node_modules\\autoprefixer",
+  "author": {
+    "name": "Alexis Deveria",
+    "email": "adeveria@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/Fyrd/caniuse/issues"
+  },
+  "dependencies": {},
+  "description": "Raw browser/feature support data from caniuse.com",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "dd762db91d20d53a2e6bf227596d162b91782e73",
+    "tarball": "https://registry.npmjs.org/caniuse-db/-/caniuse-db-1.0.30000905.tgz",
+    "integrity": "sha512-K4rpYNRaFmyceFyaJKgBDyYfO1SKdofjLSw9QXNeBwDtgNHTGhJuOgL8fQNvZGuz1GV9i5ymyA1tl7najYrKyw==",
+    "fileCount": 744,
+    "unpackedSize": 9573510,
+    "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJb38tICRA9TVsSAnZWagAAzv4P/1OBCG5GcUhzulPCpNoG\nQLZ0zwru6282LsL3JJEAYlWIZWs/4JwlK5W11VvorIhpi7DJHYUdIecmZTZO\nrFpv+M87uXIoE5pUGRmNuTfXQQnLV0WD6iJzygbZ58ylCCZzJbiy962MXR4w\n9OUmOpiZkQBsg9VkH1DdiXjKqgzq0ImTdT5jMjuMeXdlMC/ImYrcuJUP5Vwr\n9J7P4Pm69TKVYHOrz9h/+mWFqsf4JruAMvgG9K3Gcu5bL9Vxo0NBEwg65q4W\nhkm/iqOh3APOIYpqFJvI1xyKxayOA+fxuoV/Tiatj2+ZSnKj84mEnzcBZeoC\nLqAQ3tmhlYkM2wWmnef02MruuirqXW2YeQNmk/HBMDaJaSXrfjXCfV6GshP4\nwBsO/Y/rNmEHMaB15KjCAWc4Gb05I8X53tDQjD8LJABqSMG/s2bCS0D1VlGN\n+wkNHk6aVoW9zUZTqJaiEuxh8GD2rUCxzkyS3LMeCRQSRaLtoaJVtpjD70B/\nuRaLj8elEhFUjw0VJnnnaTemKJskEVyTzPMnaCbz9CQDntS7wDOLBLg/e7yx\nPufwKO6+3Drg8DQ/yXHmTvmDe88iLolm8ua9y/gpBbX3zn6Ar981fyE4WGyR\nKIJ1ezzTPfVrZss6PXgkWb92F96YMFp/8GmzAk1xbD0dMqyIFeRQMXJZWtaW\nDb2m\r\n=VRWd\r\n-----END PGP SIGNATURE-----\r\n"
+  },
+  "gitHead": "100b823649ab288db21e8f2dcfafb9c34fdbb301",
+  "homepage": "https://github.com/Fyrd/caniuse#readme",
+  "keywords": [
+    "support",
+    "css",
+    "js",
+    "html5",
+    "svg"
+  ],
+  "license": "CC-BY-4.0",
+  "maintainers": [
+    {
+      "name": "fyrd",
+      "email": "adeveria@gmail.com"
+    }
+  ],
+  "name": "caniuse-db",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fyrd/caniuse.git"
+  },
+  "scripts": {
+    "validate": "node validator/validate-jsons.js"
+  },
+  "version": "1.0.30000905"
+}

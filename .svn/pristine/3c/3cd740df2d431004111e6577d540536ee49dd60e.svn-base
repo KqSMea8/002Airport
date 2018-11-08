@@ -1,0 +1,54 @@
+import * as THREE from 'three';
+import axios from 'axios';
+let _ = require('lodash');
+export default class GeomUtil {
+  static loadJson (url) {
+    let a = axios.get(url);
+    return a.then((e) => {
+      console.log(e);
+      let classified = _.groupBy(e.data.features, (e) => {
+        return e.properties.level;
+      });
+      console.log(classified);
+      let data = e.data.features.map((item) => {
+        let coords = item.geometry.coordinates[0][0];
+        let firstPoint = coords[0];
+        var shape = new THREE.Shape();
+
+        // startpoint
+        shape.moveTo(firstPoint[0], firstPoint[1]);
+        coords.forEach(element => {
+          shape.lineTo(element[0], element[1]);
+        });
+        let extrudedHeight = 8;
+        if (item.properties.level === 210103) {
+          var geometry2 = new THREE.ShapeGeometry(shape);
+          var mesh2 = new THREE.Mesh(geometry2, new THREE.MeshBasicMaterial({
+            color: 0xFFFFFF * Math.random()
+          }));
+          return mesh2;
+        } else if (item.properties.level === 210101 || item.properties.level === 210105) {
+          return;
+        }
+        var extrudeSettings = { depth: extrudedHeight, bevelEnabled: true, bevelSegments: 2, steps: 2, bevelSize: 1, bevelThickness: 1 };
+
+        var geometry = new THREE.ExtrudeGeometry(shape, extrudeSettings);
+
+        var mesh = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({
+          color: 0xFFFFFF * Math.random()
+        //   wireframe: true
+        }));
+        // straight line upwards
+
+        return mesh;
+      });
+      debugger;
+      var group = new THREE.Group();
+      group.rotation.x = -Math.PI * 0.5;
+      data.forEach(element => {
+        group.add(element);
+      });
+      return group;
+    });
+  }
+}

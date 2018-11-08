@@ -1,0 +1,305 @@
+/*
+* @Brief: 经营报告-日 主文件
+* @Author: 张文亮
+* @Date: 2018-11-02 20:20:04
+* @Last Modified by: 张文亮
+* @Last Modified time: 2018-11-02 20:23:54
+*/
+<template>
+  <div>
+    <!-- 经营报告-日  主文件 -->
+    <el-row>
+      <el-col :span="12">
+        <h3 style="display:inline">仪表盘</h3>
+        <span>最后统计时间：&nbsp;&nbsp;</span>
+        <span>{{latestTime}}</span>
+      </el-col>
+    </el-row>
+    <el-row>
+      <el-col :span="8">
+        <div class="grid-content bg-purple-dark">
+          <el-table :data="tableDataSales" style="width: 100%">
+            <el-table-column prop="industry" label="行业">
+            </el-table-column>
+            <el-table-column prop="sales" label="销售额">
+            </el-table-column>
+            <el-table-column prop="proportion" label="占比">
+            </el-table-column>
+            <el-table-column label="完成率">
+              <template slot-scope="scope">
+                <p style='display:inline'>{{scope.row.completionRate}}</p>
+                <!-- <i class = "el-icon-arrow-up"></i> -->
+                <!-- <i class = "getCompletionIcon(scope.row.completionRate)"></i> -->
+                <img src='../../../assets/img/icons/32/arrows-up-red.png' height="16" width="16">
+              </template>
+            </el-table-column>
+          </el-table>
+        </div>
+      </el-col>
+      <el-col :span="8">
+        <div class="grid-content bg-purple-dark">
+          <el-table :data="tableDataFlow" style="width: 100%">
+            <el-table-column prop="industry" label="行业">
+            </el-table-column>
+            <el-table-column prop="sales" label="客流量">
+            </el-table-column>
+            <el-table-column prop="proportion" label="占比">
+            </el-table-column>
+            <el-table-column label="转化率">
+              <template slot-scope="scope">
+                <p style='display:inline'>{{scope.row.completionRate}}</p>
+                <!-- <i class = "el-icon-arrow-up"></i> -->
+                <!-- <i class = "getCompletionIcon(scope.row.completionRate)"></i> -->
+                <img src='../../../assets/img/icons/32/arrows-up-red.png' height="16" width="16">
+              </template>
+            </el-table-column>
+          </el-table>
+        </div>
+      </el-col>
+      <el-col :span="8">
+        <div class="grid-content bg-purple-dark">
+          <el-table :data="tableDataFlow" style="width: 100%">
+            <el-table-column prop="industry" label="行业">
+            </el-table-column>
+            <el-table-column prop="sales" label="新增会员">
+            </el-table-column>
+            <el-table-column prop="proportion" label="占比">
+            </el-table-column>
+            <el-table-column label="同比">
+              <template slot-scope="scope">
+                <p style='display:inline'>{{scope.row.completionRate}}</p>
+                <!-- <i class = "el-icon-arrow-up"></i> -->
+                <!-- <i class = "getCompletionIcon(scope.row.completionRate)"></i> -->
+
+                <img src='../../../assets/img/icons/32/arrows-up-red.png' height="16" width="16">
+              </template>
+            </el-table-column>
+          </el-table>
+        </div>
+      </el-col>
+    </el-row>
+    <el-row>
+      <el-col :span="24">
+        <h3 style="display:inline">客流趋势</h3>
+        <el-select v-model="regionSelect" size='mini'>
+          <el-option v-for="item in regionSelectList" :key="item.value" :label="item.label" :value="item.value">
+          </el-option>
+        </el-select>
+        <el-select v-model="floorSelectList" size='mini'>
+          <el-option v-for="item in floorSelectList" :key="item.value" :label="item.label" :value="item.value">
+          </el-option>
+        </el-select>
+        <el-select v-model="shopSelect" size='mini'>
+          <el-option v-for="item in shopSelectList" :key="item.value" :label="item.label" :value="item.value">
+          </el-option>
+        </el-select>
+
+      </el-col>
+    </el-row>
+
+    <el-row>
+      <el-col :span="24">
+        <div id='myTrendChart' :style="{height:'300px',width:'100%'}"></div>
+      </el-col>
+    </el-row>
+    <el-row>
+      <el-col :span="24">
+        <div id='myChart' :style="{height:'300px',width:'100%'}"></div>
+      </el-col>
+    </el-row>
+
+  </div>
+
+</template>
+<script>
+export default {
+  data () {
+    return {
+      tableDataSales: [
+        {
+          industry: '综合',
+          sales: 2000,
+          proportion: '100%',
+          completionRate: 0.1
+        },
+        {
+          industry: '餐饮',
+          sales: 800,
+          proportion: '30%',
+          completionRate: 0.14
+        },
+        {
+          industry: '商贸',
+          sales: 500,
+          proportion: '20%',
+          completionRate: 0.14
+        },
+        {
+          industry: '免税',
+          sales: 700,
+          proportion: '40%',
+          completionRate: '-0.02'
+        },
+        {
+          industry: '餐饮',
+          sales: 800,
+          proportion: '30%',
+          completionRate: 0.14
+        }],
+      tableDataFlow: [
+        {
+          industry: '综合',
+          sales: 2000,
+          proportion: '100%',
+          completionRate: 0.1
+        },
+        {
+          industry: '餐饮',
+          sales: 800,
+          proportion: '30%',
+          completionRate: 0.14
+        },
+        {
+          industry: '商贸',
+          sales: 500,
+          proportion: '20%',
+          completionRate: 0.14
+        },
+        {
+          industry: '免税',
+          sales: 700,
+          proportion: '40%',
+          completionRate: '-0.02'
+        },
+        {
+          industry: '餐饮',
+          sales: 800,
+          proportion: '30%',
+          completionRate: 0.14
+        }],
+      regionSelectList: [
+        {
+          label: '整体',
+          value: 'allRegion'
+        },
+        {
+          label: '公共区',
+          value: 'publicRegion'
+        },
+        {
+          label: '控制区',
+          value: 'controlRegion'
+        }],
+      floorSelectList: [
+        {
+          label: '第一层',
+          value: 1
+        },
+        {
+          label: '第二层',
+          value: 2
+        },
+        {
+          label: '第三层',
+          value: 3
+        }],
+      shopSelectList: [],
+      regionSelect: '',
+      floorSelect: '',
+      shopSelect: '',
+      latestTime: ''
+    };
+  },
+  computed: {
+    getCompletionIcon (v) {
+      return v > 0 ? 'el-icon-arrow-up' : 'el-icon-arrow-down';
+    }
+  },
+  mounted () {
+    // 示例图表
+    let myChart = this.$echarts.init(document.getElementById('myChart'));
+    myChart.setOption({
+      title: {
+        text: '在VUE中使用echarts'
+      },
+      tooltip: {},
+      xAxis: {
+        data: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子']
+      },
+      yAxis: {},
+      series: [
+        {
+          name: '销量',
+          type: 'bar',
+          data: [5, 20, 36, 10, 10, 20]
+        }]
+    });
+
+    // 客流趋势图表
+    let myTrendChart = this.$echarts.init(
+      document.getElementById('myTrendChart')
+    );
+    myTrendChart.setOption({
+      title: {
+        text: '',
+        subtext: ''
+      },
+      tooltip: {
+        trigger: 'axis'
+      },
+      legend: {
+        data: ['昨日数据', '今日数据']
+      },
+      toolbox: {
+        show: true,
+        feature: {
+          mark: { show: true },
+          dataView: { show: true, readOnly: false },
+          magicType: { show: true, type: ['line', 'bar'] },
+          restore: { show: true },
+          saveAsImage: { show: true }
+        }
+      },
+      calculable: true,
+      xAxis: [
+        {
+          type: 'category',
+          boundaryGap: false,
+          data: (function () {
+            let list = [];
+            for (let i = 0; i <= 21; i += 3) {
+              if (i < 10) {
+                list.push('0' + i + ':00-0' + i + ':59');
+              } else {
+                list.push(i + ':00-' + i + ':59');
+              }
+            }
+            return list;
+          })()
+        }],
+      yAxis: [
+        {
+          type: 'value',
+          axisLabel: {
+            formatter: '{value} '
+          }
+        }],
+
+      series: [
+        {
+          name: '昨日新用户数',
+          type: 'line',
+          data: [27, 18, 10, 29, 15, 9, 13, 16]
+        },
+        {
+          name: '今日新用户数',
+          type: 'line',
+          data: [26, 11, 19, 9, 27, 11, 16, 21]
+        }]
+    });
+  },
+  methods: {}
+};
+</script>
+<style scoped>
+</style>

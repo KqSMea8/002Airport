@@ -1,0 +1,24 @@
+/*
+ * @Brief:  商业地图可视化 主文件
+ * @Author: 张文亮
+ * @Date: 2018-11-02 20:20:04
+ * @Last Modified by: 张文亮
+ * @Last Modified time: 2018-11-05 15:56:51
+ */
+<template>
+    <div id="three"></div>
+</template>
+<script>
+export default {
+  mounted () {
+  },
+  methods: {
+  }
+};
+</script>
+<style scoped>
+#three{
+  height: 100%;
+  width:100%;
+}
+</style>

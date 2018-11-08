@@ -1,0 +1,112 @@
+import Vue from 'vue';
+import Router from 'vue-router';
+import Login from '@/components/common/Login';
+import NotFound from '@/components/common/404.vue';
+import Home from '@/components/common/Home';
+// 组件引用
+import AccurateMarket from './components/accurate-marketing/AccurateMarket';
+import ViewByDay from './components/business-data-overview/overview-by-day/ViewByDay';
+import ViewByWeek from './components/business-data-overview/overview-by-week/ViewByWeek';
+import ViewByMonth from './components/business-data-overview/overview-by-month/ViewByMonth';
+import ViewByYear from './components/business-data-overview/overview-by-year/ViewByYear';
+import BusinessView from './components/business-overview/BusinessView';
+import Cockpit from './components/cockpit/Cockpit';
+import ContractView from './components/contract-overview/ContractView';
+import MapVisual from './components/map-visualization/MapVisual';
+import PassengerFlow from './components/passenger-flow/PassengerFlow';
+
+Vue.use(Router);
+
+export default new Router({
+  routes: [
+    {
+      path: '/login',
+      component: Login,
+      name: '',
+      hidden: true
+    },
+    {
+      path: '/404',
+      component: NotFound,
+      name: '',
+      hidden: true
+    },
+    {
+      path: '/',
+      component: Home,
+      name: '商业数据经营总览',
+      iconCls: 'el-icon-message', // 图标样式class
+      children: [
+        { path: '/viewbyday', component: ViewByDay, name: '经营报告-日' },
+        { path: '/viewbyweek', component: ViewByWeek, name: '经营报告-周' },
+        { path: '/viewbymonth', component: ViewByMonth, name: '经营报告-月' },
+        { path: '/viewbyyear', component: ViewByYear, name: '经营报告-年' }
+      ]
+    },
+    {
+      path: '/',
+      component: Home,
+      name: '商业地图可视化',
+      leaf: true, // 只有一个节点
+      iconCls: 'fa fa-id-card-o',
+      children: [
+        { path: '/mapview', component: MapVisual, name: '商业地图可视化' }
+      ]
+    },
+    {
+      path: '/',
+      component: Home,
+      name: '',
+      iconCls: 'fa fa-address-card',
+      leaf: true, // 只有一个节点
+      children: [
+        { path: '/contract', component: ContractView, name: '合约概览' }
+      ]
+    },
+    {
+      path: '/',
+      component: Home,
+      name: '',
+      iconCls: 'fa fa-address-card',
+      leaf: true, // 只有一个节点
+      children: [
+        { path: '/business', component: BusinessView, name: '营业概览' }
+      ]
+    },
+    {
+      path: '/',
+      component: Home,
+      name: '',
+      iconCls: 'fa fa-address-card',
+      leaf: true, // 只有一个节点
+      children: [
+        { path: '/marketing', component: AccurateMarket, name: '精准营销准备' }
+      ]
+    },
+    {
+      path: '/',
+      component: Home,
+      name: '',
+      iconCls: 'fa fa-address-card',
+      leaf: true, // 只有一个节点
+      children: [
+        { path: '/flow', component: PassengerFlow, name: '客流情况' }
+      ]
+    },
+    {
+      path: '/',
+      component: Home,
+      name: '',
+      iconCls: 'fa fa-address-card',
+      leaf: true, // 只有一个节点
+      children: [
+        { path: '/cockpit', component: Cockpit, name: '驾驶舱' }
+      ]
+    },
+    {
+      path: '*',
+      hidden: true,
+      redirect: { path: '/404' }
+    }
+  ]
+});

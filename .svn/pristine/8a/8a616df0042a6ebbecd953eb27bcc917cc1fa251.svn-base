@@ -1,0 +1,260 @@
+<template>
+  <el-row class="container">
+    <el-col :span="24" class="header">
+      <el-col :span="10" class="logo">
+        <img src="../../assets/img/logo.png" />
+        <span class="title">BI数据分析</span>
+      </el-col>
+
+      <el-col :span="12" class="userinfo">
+        <el-col :span="14">
+          <span class="foot-print">
+            <img src="../../assets/img/icon-foot.png" />
+            当前场馆：首都新机场T2
+          </span>
+        </el-col>
+        <el-col :span="6">
+          <el-col :span="12">
+            <img class="usericon" :src="sysUserIcon" />
+          </el-col>
+          <el-col :span="12">
+            <div class="user">
+              {{sysUserName}}已登陆
+            </div>
+            <div class="time">您好，管理员</div>
+          </el-col>
+        </el-col>
+        <el-col :span="4">
+          <div class="logout">
+            <span @click="logout">
+              <img src="../../assets/img/icon-logout.png" />
+              退出
+            </span>
+          </div>
+          <div class="time">{{datatime}}</div>
+        </el-col>
+      </el-col>
+    </el-col>
+    <el-col :span="24" class="main">
+      <aside>
+        <NavMenu :navMenus='navDatas'></NavMenu>
+      </aside>
+      <section class="content-container">
+        <el-col :span="24" class="content-wrapper">
+          <transition name="fade" mode="out-in">
+            <keep-alive>
+              <router-view></router-view>
+            </keep-alive>
+          </transition>
+        </el-col>
+      </section>
+    </el-col>
+  </el-row>
+</template>
+
+<script>
+import NavMenu from './NavMenu';
+export default {
+  components: {
+    NavMenu
+  },
+  data () {
+    return {
+      sysUserName: '游客',
+      sysUserIcon: '../../../static/img/userdefaulticon.jpg', // 用户图标
+      datatime: '',
+      navDatas: []
+    };
+  },
+  methods: {
+    // 退出登录
+    logout: function () {
+      var _this = this;
+      this.$confirm('确认退出吗?', '提示', {
+
+      }).then(() => {
+        sessionStorage.removeItem('user');
+        _this.$router.push('/login');
+      }).catch(() => {
+
+      });
+    },
+    // 获取当前时间，返回格式2018年11月07日
+    formData () {
+      var d = new Date();
+      var curr_date = d.getDate();
+      var curr_month = d.getMonth() + 1;
+      var curr_year = d.getFullYear();
+      String(curr_month).length < 2 ? (curr_month = '0' + curr_month) : curr_month;
+      String(curr_date).length < 2 ? (curr_date = '0' + curr_date) : curr_date;
+      var yyyyMMdd = curr_year + '年' + curr_month + '月' + curr_date + '日';
+      return yyyyMMdd;
+    }
+
+  },
+  mounted () {
+    // 验证用户
+    var user = sessionStorage.getItem('user');
+    if (user) {
+      user = JSON.parse(user);
+      this.sysUserName = user.username ? user.username : '游客';
+    }
+    // 请求右侧菜单
+    const that = this;
+    this.$axios({
+      method: 'get',
+      url: '../../../static/config/NavMenu.json',
+      params: {}
+    }).then(e => {
+      if (e.data) {
+        that.navDatas = e.data;
+      }
+    }).catch(e => {
+      that.$Message.info('加载菜单失败！');
+    });
+    // 获取系统时间
+    this.datatime = this.formData();
+  }
+};
+</script>
+
+<style scoped lang="scss">
+  // @import '~scss_vars';
+
+  .container {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    width: 100%;
+
+    .header {
+      height: 88px;
+      line-height: 88px;
+      background: #FFFFFF;
+      color: #999999;
+
+      .userinfo {
+        text-align: right;
+        padding-right: 24px;
+        float: right;
+
+        .foot-print {
+          color: #647BA1;
+          line-height: 14px;
+
+          img {
+            margin-right: 8px;
+          }
+
+        }
+
+        .user {
+          color: #333333;
+          margin: 26px 0px 0px 0px;
+          line-height: 14px;
+          font-weight: bold;
+        }
+
+        .usericon {
+          width: 56px;
+          height: 56px;
+          margin: 16px;
+          border-radius: 50px;
+        }
+
+        .logout {
+          cursor: pointer;
+          color: #647BA1;
+          margin: 24px 0px 0px 0px;
+          line-height: 14px;
+
+          img {
+            margin-right: 4px;
+          }
+        }
+
+        .time {
+          line-height: 14px;
+          margin: 11px 0px 0px 0px;
+          font-size: 12px;
+        }
+      }
+
+      .logo {
+        font-size: 24px;
+        padding-left: 20px;
+
+        img {
+          float: left;
+          margin: 20px 8px 20px 0;
+        }
+
+        .title {
+          margin: 32px 0 32px 8px;
+        }
+      }
+
+    }
+
+    .main {
+      display: flex;
+      // background: #324057;
+      position: absolute;
+      top: 88px;
+      bottom: 0px;
+      overflow: hidden;
+
+      aside {
+        flex: 0 0 240px;
+        width: 240px;
+        background-color: #314D7C;
+        color: #88B6FB;
+
+        .el-menu {
+          height: 100%;
+        }
+      }
+
+      .content-container {
+        height: 100%;
+        // background: #f1f2f7;
+        flex: 1;
+        // position: absolute;
+        // right: 0px;
+        // top: 0px;
+        // bottom: 0px;
+        // left: 230px;
+        overflow-y: scroll;
+        padding: 20px;
+        .content-wrapper{
+          height: 100%
+        }
+
+        .breadcrumb-container {
+
+          //margin-bottom: 15px;
+          .title {
+            width: 200px;
+            float: left;
+            color: #475669;
+          }
+
+          .breadcrumb-inner {
+            float: right;
+          }
+        }
+
+        .grid-content {
+          height: 100%;
+
+          .content-wrapper {
+            background-color: #fff;
+            box-sizing: border-box;
+            height: 100%;
+          }
+        }
+
+      }
+    }
+  }
+</style>
